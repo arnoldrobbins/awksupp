@@ -1,0 +1,22 @@
+Path: mit-prep!mit-hermes!mit-eddie!genrad!panda!husc6!harvard!seismo!umcp-cs!mark
+From: mark@umcp-cs.UUCP (Mark Weiser)
+Newsgroups: net.sources
+Subject: Re: Awk document
+Date: 20 Jun 86 02:51:48 GMT
+Reply-To: mark@maryland.UUCP (Mark Weiser)
+Organization: University of Maryland, Dept. of Computer Sci.
+
+
+One undocumented aspect of Awk that John fails to mention in his otherwise
+superb update to the Awk documention is the use of single precision floats
+to represent all Awk numbers.  This means that if you are using awk
+to balance your checkbook, and an intermediate sum ever gets to around
+$50,000.00, you will lose some digits.
+
+So that you can balance even the government's checkbook, recompile
+Awk with AWKFLOAT redefined to 'double' in the file awk.def.
+-mark
+-- 
+Spoken: Mark Weiser 	ARPA:	mark@maryland	Phone: +1-301-454-7817
+CSNet:	mark@umcp-cs 	UUCP:	{seismo,allegra}!umcp-cs!mark
+USPS: Computer Science Dept., University of Maryland, College Park, MD 20742
