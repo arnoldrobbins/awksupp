@@ -7,6 +7,7 @@
 .\" nroff -ms
 .\" 
 .RP
+.ND "May 28, 1986"
 .TL
 .B
 A Supplemental Document For AWK
