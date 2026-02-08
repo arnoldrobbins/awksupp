@@ -1,0 +1,28 @@
+Path: utzoo!utgpu!jarvis.csri.toronto.edu!mailrus!tut.cis.ohio-state.edu!ucbvax!ucsd!chem.ucsd.edu!jwp
+From: jwp@chem.ucsd.edu (John Pierce)
+Newsgroups: comp.unix.questions
+Subject: Obsolete awk document
+Message-ID: <431@chem.ucsd.EDU>
+Date: 2 Apr 89 22:38:52 GMT
+Organization: Chemistry Dept, UC San Diego
+
+I've received several mail messages that indicate that there was a recent
+reference in comp.unix.questions to a document I wrote four or five years
+ago titled "A Supplemental Document For AWK".  It is gratifying that people
+found that document useful, but it and the version of awk to which it applied
+really shouldn't still be in use.  That document applies only to the version
+of awk originally distributed with BSD.  While it is generally accurate in
+its description of a few bugs and sketchily documented features in that
+version, that is NOT the most recent version.
+
+The current version is the one described in "The AWK Programming Language" by
+Aho, Kernighan, and Weinberger (Addison-Wesley, 1988, ISBN 0-201-07981-X).  If
+you don't have this version and the book, you should get them.  Source code
+is available (I believe inexpensively) from both AT&T and Addison-Wesley; there
+is a card in the back of the book for obtaining information on how to get it.
+The original version was certainly a useful tool; this version is very much
+superior to it.
+
+-- 
+   John Pierce	Chemistry, B-032, UCSD, La Jolla,  CA 92093
+		jwp@chem.ucsd.edu  jpierce@ucsd  +1 619 534 0203

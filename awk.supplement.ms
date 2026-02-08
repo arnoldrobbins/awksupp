@@ -1,13 +1,13 @@
-.\" Return-Path: <sdcsvax!chem.UCSD.EDU!jwp>
-.\" Date: Wed, 28 May 86 12:53:26 pdt
-.\" From: sdcsvax!chem.UCSD.EDU!jwp@seismo.CSS.GOV (John Pierce)
-.\" To: s3sun!seismo!PREP.AI.MIT.EDU!tower@chem.ARPA
-.\" Subject: Supplemental Awk Document
-.\" 
-.\" nroff -ms
+.\" Path: utzoo!mnetor!uunet!seismo!esosun!ucsdhub!sdcsvax!brian
+.\" From: brian@sdcsvax.UCSD.EDU (Brian Kantor)
+.\" Newsgroups: comp.doc
+.\" Subject: AWK supplementary document - troff with 'ms' macros
+.\" Message-ID: <4070@sdcsvax.UCSD.EDU>
+.\" Date: Sun, 11-Oct-87 02:40:02 EDT
+.\" Organization: UCSD wombat breeding society
 .\" 
 .RP
-.ND "May 28, 1986"
+.ND "October 11, 1987"
 .TL
 .B
 A Supplemental Document For AWK
@@ -40,7 +40,7 @@ applies primarily to the \fI4.2 BSD\fR version of \fIUNIX\fR,
 it is known that the \fI4.3 BSD\fR version does not have
 all of the bugs fixed, and that it does not have updated
 documentation.  The situation with respect to the versions
-of \fBawk\fR disitributed with other versions \fIUNIX\fR and
+of \fBawk\fR distributed with other versions \fIUNIX\fR and
 similar systems is unknown to the author.
 .FS
 *UNIX is a trademark of AT&T
@@ -71,7 +71,9 @@ Assignment to input fields.
 .IP
 Piping output to a program from within an \fBawk\fR script.
 .IP
-Using '*' in \fIprintf\fR field width and precision specifications.
+Using '*' in \fIprintf\fR field width and precision specifications
+does not work, nor do '\\f' and '\\b' print formfeed and backspace
+respectively.
 .NH 2
 Assignment to Input Fields
 .LP
@@ -204,14 +206,16 @@ below for other considerations in redirecting
 output from within an
 .B awk
 script.
-.
 .NH 2
-Printf Field Width and Precision Specification With '*'
+Printf and '*', '\\f', and '\\b'
 .LP
 The document says that the \fIprintf\fR function provided is
 identical to the \fIprintf\fR provided by the \fIC\fR language
-\fBstdio\fR package.  This is not true for the case of using '*' to
-specify a field width or precision.  The command
+\fBstdio\fR package.  This is incorrect:  '*' cannot be used to
+specify a field width or precision, and '\\f' and '\\b' cannot
+be used to print formfeeds and backspaces.
+.LP
+The command
 .DS
 printf("%*.s", len, string)
 .DE
@@ -246,6 +250,11 @@ printf(fmt "\en", val)
 .DE
 Note, however, that the newline ("\en") in the second form \fIcannot\fR
 be included in the assignment to \fIfmt\fR.
+.LP
+To allow use of '\\f' and '\\b', \fBawk\fR's \fIlex\fR script must
+be changed.  This is trivial to do (it is done at the point
+where '\\n' and '\\t' are processed), but requires having source
+code.  [I have fixed this and have not seen any unwanted effects.]
 .bp
 .NH
 Undocumented Features
